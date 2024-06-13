@@ -1,9 +1,9 @@
+#import <CoreFoundation/CoreFoundation.h>
 #import <dlfcn.h>
 #import <mach-o/dyld.h>
 #import <objc/runtime.h>
 #import <os/log.h>
 #import <stdio.h>
-
 #import "pac_helper.h"
 #import <Accounts/Accounts.h>
 #import <CaptainHook/CaptainHook.h>

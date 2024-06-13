@@ -1,10 +1,10 @@
-TARGET := iphone:clang:14.5:13.0
-ARCHS = arm64 arm64e
+TARGET := iphone:clang:14.5:14.0
+ARCHS = arm64
+THEOS_PACKAGE_SCHEME=rootless
 INSTALL_TARGET_PROCESSES = itunesstored
 GO_EASY_ON_ME = 1
-# export THEOS_DEVICE_IP = 127.0.0.1
-# export THEOS_DEVICE_PORT = 58422
-
+export THEOS_DEVICE_IP = localhost
+export THEOS_DEVICE_PORT = 2223
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = KbsyncTweak
@@ -12,7 +12,11 @@ TWEAK_NAME = KbsyncTweak
 KbsyncTweak_FILES = Tweak.m
 KbsyncTweak_CFLAGS += -fobjc-arc
 KbsyncTweak_CFLAGS += -Wno-unused-variable
+# KbsyncTweak_CFLAGS += -DROCKETBOOTSTRAP_LOAD_DYNAMIC=1 -D__COREFOUNDATION_CFMESSAGEPORT__=1
+KbsyncTweak_CFLAGS += -Wno-implicit-function-declaration
+
 KbsyncTweak_LIBRARIES = rocketbootstrap
+KbsyncTweak_FRAMEWORKS = CoreFoundation
 KbsyncTweak_PRIVATE_FRAMEWORKS = Accounts AppSupport StoreServices
 include $(THEOS_MAKE_PATH)/tweak.mk
 

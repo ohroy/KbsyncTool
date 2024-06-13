@@ -1,12 +1,11 @@
+#import <CoreFoundation/CoreFoundation.h>
 #import <stdio.h>
-
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
 #import <rocketbootstrap/rocketbootstrap.h>
-
 #import "GCDWebServer.h"
 #import "GCDWebServerDataResponse.h"
 #import "GCDWebServerErrorResponse.h"
-
+#import <rootless.h>
 
 static id RocketGetJSONResponse(NSString *urlString, NSString *syncType)
 {
